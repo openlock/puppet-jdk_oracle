@@ -56,6 +56,8 @@ class jdk_oracle (
   $ensure         = 'installed',
   $jmxremote_stat = hiera('jdk_oracle::jmxremote_stat', true ),
   $jmxremote_pass = hiera('jdk_oracle::jmxremote_pass', '#763meheto' ),
+  $jmxremote_owner  = hiera('$jdk_oracle::jmxremote_owner', '0'),
+  $jmxremote_group  = hiera('$jdk_oracle::jmxremote_group', '0'),
   ) {
 
 

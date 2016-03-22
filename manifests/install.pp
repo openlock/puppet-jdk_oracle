@@ -12,6 +12,9 @@ class jdk_oracle::install (
     $ensure           = $jdk_oracle::ensure,
     $jmxremote_stat   = $jdk_oracle::jmxremote_stat,
     $jmxremote_pass   = $jdk_oracle::jmxremote_pass,
+    $jmxremote_owner  = $jdk_oracle::jmxremote_owner,
+    $jmxremote_group  = $jdk_oracle::jmxremote_group,
+    
   ) inherits jdk_oracle {
 
 
@@ -262,8 +265,8 @@ class jdk_oracle::install (
       file { "$java_home/jre/lib/management/jmxremote.password":
         ensure  => file,
         mode    => '0400',
-        owner   => 0,
-        group   => 0,
+        owner   => "$jmxremote_owner",
+        group   => "$jmxremote_group",
         content => " monitorRole $jmxremote_pass",
       }
     }
